@@ -1,0 +1,792 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "API Documentation",
+        "version": "1.0.0"
+    },
+    "host": "serviceshris.distribusipelitanusantara.com",
+    "basePath": "",
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "paths": {
+        "/api/AddEmployee": {
+            "post": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Tambah Data Employee",
+                "operationId": "AddEmployee",
+                "parameters": [
+                    {
+                        "name": "Parameters",
+                        "in": "body",
+                        "description": "Tambah Data Employee",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "nik": {
+                                    "type": "string",
+                                    "example": "0400211111111116"
+                                },
+                                "parent_no": {
+                                    "type": "string",
+                                    "example": "123"
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "example": "Tri Zaenal Mutaqin"
+                                },
+                                "alias": {
+                                    "type": "string",
+                                    "example": "Tri"
+                                },
+                                "ktp_no": {
+                                    "type": "string",
+                                    "example": "3211110812960000"
+                                },
+                                "kk_no": {
+                                    "type": "string",
+                                    "example": "3211110812960000"
+                                },
+                                "email": {
+                                    "type": "string",
+                                    "example": "trizaenalmutaqin59@gmail.com"
+                                },
+                                "address": {
+                                    "type": "text",
+                                    "example": "Jl. Karangsari No. 12 Rt/Rw. 04/05 Tanjungsari  Sumedang  Jawa Barat"
+                                },
+                                "city": {
+                                    "type": "string",
+                                    "example": "Kota Semarang"
+                                },
+                                "kelurahan": {
+                                    "type": "string",
+                                    "example": "Krobokan"
+                                },
+                                "kecamatan": {
+                                    "type": "string",
+                                    "example": "Semarang Barat"
+                                },
+                                "province": {
+                                    "type": "string",
+                                    "example": "Jawa Tengah"
+                                },
+                                "birthday": {
+                                    "type": "date",
+                                    "example": "1981-07-05"
+                                },
+                                "birthplace": {
+                                    "type": "string",
+                                    "example": "Semarang"
+                                },
+                                "phone": {
+                                    "type": "string",
+                                    "example": "81225610174"
+                                },
+                                "marrital": {
+                                    "type": "string",
+                                    "example": "BELUM KAWIN"
+                                },
+                                "blood_type": {
+                                    "type": "string",
+                                    "enum": [
+                                        "-",
+                                        "A",
+                                        "AB",
+                                        "B",
+                                        "O"
+                                    ],
+                                    "example": "A"
+                                },
+                                "religion": {
+                                    "type": "string",
+                                    "enum": [
+                                        "Islam",
+                                        "Kristen",
+                                        "Khatolik",
+                                        "Hindu",
+                                        "Buddha",
+                                        "Konghuchu",
+                                        "Others"
+                                    ],
+                                    "example": "Islam"
+                                },
+                                "zipcode": {
+                                    "type": "string",
+                                    "example": "-"
+                                },
+                                "gender": {
+                                    "type": "string",
+                                    "enum": [
+                                        "Male",
+                                        "Female"
+                                    ],
+                                    "example": "Male"
+                                },
+                                "bank_account": {
+                                    "type": "string",
+                                    "example": "1360019260436"
+                                },
+                                "npwp": {
+                                    "type": "string",
+                                    "example": "41.305.357.0-446.000"
+                                },
+                                "bank_branch": {
+                                    "type": "string",
+                                    "example": "Bank Mandiri Taspen Salatiga"
+                                },
+                                "bank_name": {
+                                    "type": "string",
+                                    "example": "MANDIRI"
+                                },
+                                "job_status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "Active",
+                                        "Skorsing",
+                                        "Move",
+                                        "Retired",
+                                        "Fired",
+                                        "Training"
+                                    ],
+                                    "example": "Training"
+                                },
+                                "job_start": {
+                                    "type": "date",
+                                    "example": "2016-01-01"
+                                },
+                                "job_end": {
+                                    "type": "date",
+                                    "example": "2021-12-31"
+                                },
+                                "bpjs_kesehatan_no": {
+                                    "type": "string",
+                                    "example": "1969790073"
+                                },
+                                "bpjs_tenagakerja_no": {
+                                    "type": "string",
+                                    "example": "10028965274"
+                                },
+                                "position_no": {
+                                    "type": "string",
+                                    "example": "19"
+                                },
+                                "mother_name": {
+                                    "type": "string",
+                                    "example": "Alice"
+                                },
+                                "employee_photo": {
+                                    "type": "file",
+                                    "example": "name.jpg"
+                                },
+                                "is_user": {
+                                    "type": "integer",
+                                    "example": "0"
+                                }
+                            }
+                        },
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/EditEmployee": {
+            "post": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Edit Data Employee",
+                "operationId": "EditEmployee",
+                "parameters": [
+                    {
+                        "name": "Parameters",
+                        "in": "body",
+                        "description": "Edit Data Employee",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "example": "1"
+                                },
+                                "nik": {
+                                    "type": "string",
+                                    "example": "0400211111111116"
+                                },
+                                "parent_no": {
+                                    "type": "string",
+                                    "example": "123"
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "example": "Tri Zaenal Mutaqin"
+                                },
+                                "alias": {
+                                    "type": "string",
+                                    "example": "Tri"
+                                },
+                                "ktp_no": {
+                                    "type": "string",
+                                    "example": "3211110812960000"
+                                },
+                                "kk_no": {
+                                    "type": "string",
+                                    "example": "3211110812960000"
+                                },
+                                "email": {
+                                    "type": "string",
+                                    "example": "trizaenalmutaqin59@gmail.com"
+                                },
+                                "address": {
+                                    "type": "text",
+                                    "example": "Jl. Karangsari No. 12 Rt/Rw. 04/05 Tanjungsari  Sumedang  Jawa Barat"
+                                },
+                                "city": {
+                                    "type": "string",
+                                    "example": "Kota Semarang"
+                                },
+                                "kelurahan": {
+                                    "type": "string",
+                                    "example": "Krobokan"
+                                },
+                                "kecamatan": {
+                                    "type": "string",
+                                    "example": "Semarang Barat"
+                                },
+                                "province": {
+                                    "type": "string",
+                                    "example": "Jawa Tengah"
+                                },
+                                "birthday": {
+                                    "type": "date",
+                                    "example": "1981-07-05"
+                                },
+                                "birthplace": {
+                                    "type": "string",
+                                    "example": "Semarang"
+                                },
+                                "phone": {
+                                    "type": "string",
+                                    "example": "81225610174"
+                                },
+                                "marrital": {
+                                    "type": "string",
+                                    "example": "BELUM KAWIN"
+                                },
+                                "blood_type": {
+                                    "type": "string",
+                                    "enum": [
+                                        "-",
+                                        "A",
+                                        "AB",
+                                        "B",
+                                        "O"
+                                    ],
+                                    "example": "A"
+                                },
+                                "religion": {
+                                    "type": "string",
+                                    "enum": [
+                                        "Islam",
+                                        "Kristen",
+                                        "Khatolik",
+                                        "Hindu",
+                                        "Buddha",
+                                        "Konghuchu",
+                                        "Others"
+                                    ],
+                                    "example": "Islam"
+                                },
+                                "zipcode": {
+                                    "type": "string",
+                                    "example": "-"
+                                },
+                                "gender": {
+                                    "type": "string",
+                                    "enum": [
+                                        "Male",
+                                        "Female"
+                                    ],
+                                    "example": "Male"
+                                },
+                                "bank_account": {
+                                    "type": "string",
+                                    "example": "1360019260436"
+                                },
+                                "npwp": {
+                                    "type": "string",
+                                    "example": "41.305.357.0-446.000"
+                                },
+                                "bank_branch": {
+                                    "type": "string",
+                                    "example": "Bank Mandiri Taspen Salatiga"
+                                },
+                                "bank_name": {
+                                    "type": "string",
+                                    "example": "MANDIRI"
+                                },
+                                "job_status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "Active",
+                                        "Skorsing",
+                                        "Move",
+                                        "Retired",
+                                        "Fired",
+                                        "Training"
+                                    ],
+                                    "example": "Training"
+                                },
+                                "job_start": {
+                                    "type": "date",
+                                    "example": "2016-01-01"
+                                },
+                                "job_end": {
+                                    "type": "date",
+                                    "example": "2021-12-31"
+                                },
+                                "bpjs_kesehatan_no": {
+                                    "type": "string",
+                                    "example": "1969790073"
+                                },
+                                "bpjs_tenagakerja_no": {
+                                    "type": "string",
+                                    "example": "10028965274"
+                                },
+                                "position_no": {
+                                    "type": "string",
+                                    "example": "19"
+                                },
+                                "mother_name": {
+                                    "type": "string",
+                                    "example": "Alice"
+                                },
+                                "employee_photo": {
+                                    "type": "file",
+                                    "example": "name.jpg"
+                                },
+                                "is_user": {
+                                    "type": "integer",
+                                    "example": "0"
+                                }
+                            }
+                        },
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/GetAllEmployee": {
+            "get": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Get All Employee",
+                "operationId": "GetAllEmployee",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/GetDetailEmployeeById": {
+            "get": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Get Detail Employee By Id",
+                "operationId": "GetDetailEmployeeById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/DeleteEmployee": {
+            "post": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Delete Employee",
+                "operationId": "DeleteEmployee",
+                "parameters": [
+                    {
+                        "name": "Parameters",
+                        "in": "body",
+                        "description": "Delete Customer",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "example": "1"
+                                }
+                            }
+                        },
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/GetAllEmployeePrintPDF": {
+            "get": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Get All Employee",
+                "operationId": "GetAllEmployeePrintPDF",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/GetAllEmployeePrintExcel": {
+            "get": {
+                "tags": [
+                    "Employee"
+                ],
+                "summary": "Get All Employee",
+                "operationId": "GetAllEmployeePrintExcel",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/GetAllRole": {
+            "get": {
+                "tags": [
+                    "Role"
+                ],
+                "summary": "Get All Role",
+                "operationId": "GetAllRole",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/LoginUser": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Login User",
+                "operationId": "LoginUser",
+                "parameters": [
+                    {
+                        "name": "Parameters",
+                        "in": "body",
+                        "description": "Login User",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "email": {
+                                    "type": "string",
+                                    "example": "nama@mail.com"
+                                },
+                                "password": {
+                                    "type": "string",
+                                    "example": "nama123"
+                                }
+                            }
+                        },
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/api/Logout": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Logout User",
+                "operationId": "UsersLogout",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/ForgotPassword": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Forgot Password User",
+                "operationId": "ForgotPassword",
+                "parameters": [
+                    {
+                        "name": "Parameters",
+                        "in": "body",
+                        "description": "Forgot Password User",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "email": {
+                                    "type": "string",
+                                    "example": "nama@mail.com"
+                                }
+                            }
+                        },
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/api/EditProfile": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Edit Profile User",
+                "operationId": "EditProfile",
+                "parameters": [
+                    {
+                        "name": "Parameters",
+                        "in": "body",
+                        "description": "Edit Profile User",
+                        "required": true,
+                        "schema": {
+                            "properties": {
+                                "name": {
+                                    "type": "string",
+                                    "example": "nama"
+                                },
+                                "email": {
+                                    "type": "string",
+                                    "example": "nama@mail.com"
+                                },
+                                "password": {
+                                    "type": "string",
+                                    "example": "1QwOp@"
+                                },
+                                "new_password": {
+                                    "type": "string",
+                                    "example": "1QwOp@"
+                                },
+                                "confirm_password": {
+                                    "type": "string",
+                                    "example": "1QwOp@"
+                                }
+                            }
+                        },
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/GetUser": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get Users",
+                "operationId": "GetUser",
+                "parameters": [
+                    {
+                        "name": "role",
+                        "in": "query",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {},
+    "securityDefinitions": {
+        "apiAuth": {
+            "type": "apiKey",
+            "description": "Login with email and password to get the authentication token",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
+}
