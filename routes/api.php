@@ -61,4 +61,22 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::post('DeleteEmployee', 'EmployeeController@DeleteEmployee');
     Route::get('GetAllEmployeePrintPDF', 'EmployeeController@GetAllEmployeePrintPDF');
     Route::get('GetAllEmployeePrintExcel', 'EmployeeController@GetAllEmployeePrintExcel');
+
+    
+    Route::get('GetRecruitment', 'RecruitmentController@GetRecruitment');
+    Route::get('GetJobSeeker', 'RecruitmentController@GetJobSeeker');
+    Route::get('GetSchedule', 'RecruitmentController@GetSchedule');
+    Route::get('GetResult', 'RecruitmentController@GetResult');
+    Route::get('GetDetailRecruitment', 'RecruitmentController@GetDetailRecruitment');
+    Route::get('GetJobSeekerByRecruitment', 'RecruitmentController@GetJobSeekerByRecruitment');
+    Route::get('GetJobSeekerStatus', 'RecruitmentController@GetJobSeekerStatus');
+    Route::post('AddRecruitment', 'RecruitmentController@AddRecruitment');
+    Route::post('UpdateRecruitment', 'RecruitmentController@UpdateRecruitment');
+    Route::post('UpdateStatusRecruitment', 'RecruitmentController@UpdateStatusRecruitment');
+    Route::post('DeleteRecruitment', 'RecruitmentController@DeleteRecruitment');
+    Route::post('UpdateSchedule', 'RecruitmentController@UpdateSchedule');
+    Route::post('UpdateResult', 'RecruitmentController@UpdateResult');
+    Route::post('AddJobSeeker', 'RecruitmentController@AddJobSeeker');
+    Route::post('UpdateJobSeeker', 'RecruitmentController@UpdateJobSeeker');
+    Route::post('DeleteJobSeeker', 'RecruitmentController@DeleteJobSeeker');
 });

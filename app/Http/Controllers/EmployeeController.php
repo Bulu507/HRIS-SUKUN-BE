@@ -642,9 +642,9 @@ class EmployeeController extends Controller
             if($getstatus){$status='%'.$getstatus.'%';}
             else{$status='%%';}
 
-            $getup = $request->unit_perusahaan_code;
-            if($getup){$unit_perusahaan='%'.$getup.'%';}
-            else{$unit_perusahaan='%%';}
+            // $getup = $request->unit_perusahaan_code;
+            // if($getup){$unit_perusahaan='%'.$getup.'%';}
+            // else{$unit_perusahaan='%%';}
 
             $getdivisi = $request->divisi_code;
             if($getdivisi){$divisi='%'.$getdivisi.'%';}
@@ -666,12 +666,11 @@ class EmployeeController extends Controller
             $query = DB::table('employees')
                 ->select('employees.id','employees.no_induk_karyawan','employees.nama_lengkap','employees.jenis_kelamin','employees.jabatan','employees.pangkat',
                 'employees.status_karyawan','ms_status_karyawan.nama as status_karyawan_nama',
-                'ms_department.divisi_code', 'ms_department.department_code','ms_department.nama as dept_nama','ms_divisi.nama as divisi_nama','ms_unit_perusahaan.nama as unit_perusahan_nama')
-                ->join('ms_unit_perusahaan','ms_unit_perusahaan.unit_perusahaan_code','=', 'employees.unit_perusahan')
+                'ms_department.divisi_code', 'ms_department.department_code','ms_department.nama as dept_nama','ms_divisi.nama as divisi_nama')
+                
                 ->join('ms_divisi','ms_divisi.divisi_code','=', 'employees.divisi')
                 ->join('ms_department','ms_department.department_code','=', 'employees.departement')
                 ->join('ms_status_karyawan','ms_status_karyawan.id','=', 'employees.status_karyawan')
-                ->where('ms_unit_perusahaan.unit_perusahaan_code', 'Like', $unit_perusahaan)
                 ->where('ms_divisi.divisi_code', 'Like', $divisi)
                 ->where('ms_department.department_code', 'Like', $department)   
                 ->where('employees.status_karyawan', 'Like', $status)             
@@ -775,9 +774,7 @@ class EmployeeController extends Controller
                     'employees.updated_at',
                     'ms_status_karyawan.nama as status_karyawan_nama',
                     'ms_department.divisi_code', 'ms_department.department_code',
-                    'ms_department.nama as dept_nama','ms_divisi.nama as divisi_nama',
-                    'ms_unit_perusahaan.nama as unit_perusahan_nama')
-                ->join('ms_unit_perusahaan','ms_unit_perusahaan.unit_perusahaan_code','=', 'employees.unit_perusahan')
+                    'ms_department.nama as dept_nama','ms_divisi.nama as divisi_nama')
                 ->join('ms_divisi','ms_divisi.divisi_code','=', 'employees.divisi')
                 ->join('ms_department','ms_department.department_code','=', 'employees.departement')
                 ->join('ms_status_karyawan','ms_status_karyawan.id','=', 'employees.status_karyawan')
@@ -844,7 +841,6 @@ class EmployeeController extends Controller
                     "tanggal_lahir"             => $employee->tanggal_lahir,
                     "nama_ortu"                 => $employee->nama_ortu,
                     "agama"                     => $employee->agama,
-                    "unit_perusahan"            => $employee->unit_perusahan,
                     "pangkat"                   => $employee->pangkat,
                     "jabatan"                   => $employee->jabatan,
                     "divisi"                    => $employee->divisi,
@@ -878,7 +874,6 @@ class EmployeeController extends Controller
                     "status_karyawan_nama"      => $employee->status_karyawan_nama,
                     "dept_nama"                 => $employee->dept_nama,
                     "divisi_nama"               => $employee->divisi_nama,
-                    "unit_perusahan_nama"       => $employee->unit_perusahan_nama,
                     "created_at"                => $employee->created_at,
                     "updated_at"                => $employee->updated_at,
                     "listAnak"                  => $daftar_anak,

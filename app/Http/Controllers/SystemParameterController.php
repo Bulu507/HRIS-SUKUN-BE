@@ -78,7 +78,18 @@ class SystemParameterController extends Controller
     {
 
         try {
-            $getUnitPerusahaan = UnitPerusahaan::where('is_dell', '=',0)->get();
+            $userId = Auth::id();
+            $getRole = DB::table('users')
+                ->where('id', '=', $userId)
+                ->select('role_code')
+                ->first();
+            $roleCode = ['role_code' => $getRole->role_code];
+            
+            if (in_array('99', $roleCode)) {
+                $getUnitPerusahaan = UnitPerusahaan::get();
+            }else{                
+                $getUnitPerusahaan = UnitPerusahaan::where('is_dell', '=',0)->get();
+            }
 
             if (count($getUnitPerusahaan) != 0) {
                 $count = UnitPerusahaan::where('is_dell', '=',0)->count();
@@ -113,7 +124,18 @@ class SystemParameterController extends Controller
     {
 
         try {
-            $getDivisi = Divisi::where('is_dell', '=',0)->get();
+            $userId = Auth::id();
+            $getRole = DB::table('users')
+                ->where('id', '=', $userId)
+                ->select('role_code')
+                ->first();
+            $roleCode = ['role_code' => $getRole->role_code];
+            
+            if (in_array('99', $roleCode)) {
+                $getDivisi = Divisi::get();
+            }else{                
+                $getDivisi = Divisi::where('is_dell', '=',0)->get();
+            }
 
             if (count($getDivisi) != 0) {
                 $count = Divisi::where('is_dell', '=',0)->count();
@@ -153,12 +175,28 @@ class SystemParameterController extends Controller
             if($getdivisi){$divisi='%'.$getdivisi.'%';}
             else{$divisi='%%';}
 
-            $getDepartment = DB::table('ms_department')
-            ->select('ms_department.id','ms_department.divisi_code', 'ms_department.department_code',
-            'ms_department.nama as dept_nama','ms_department.is_dell','ms_divisi.nama as divisi_nama')
-            ->join('ms_divisi','ms_divisi.divisi_code','=', 'ms_department.divisi_code')
-            ->where('ms_divisi.divisi_code', 'Like', $divisi)
-            ->where('ms_department.is_dell', '=',0)->get();
+            $userId = Auth::id();
+            $getRole = DB::table('users')
+                ->where('id', '=', $userId)
+                ->select('role_code')
+                ->first();
+            $roleCode = ['role_code' => $getRole->role_code];
+            
+            if (in_array('99', $roleCode)) {
+                $getDepartment = DB::table('ms_department')
+                ->select('ms_department.id','ms_department.divisi_code', 'ms_department.department_code',
+                'ms_department.nama as dept_nama','ms_department.is_dell','ms_divisi.nama as divisi_nama')
+                ->join('ms_divisi','ms_divisi.divisi_code','=', 'ms_department.divisi_code')
+                ->where('ms_divisi.divisi_code', 'Like', $divisi)
+                ->get();
+            }else{                
+                $getDepartment = DB::table('ms_department')
+                ->select('ms_department.id','ms_department.divisi_code', 'ms_department.department_code',
+                'ms_department.nama as dept_nama','ms_department.is_dell','ms_divisi.nama as divisi_nama')
+                ->join('ms_divisi','ms_divisi.divisi_code','=', 'ms_department.divisi_code')
+                ->where('ms_divisi.divisi_code', 'Like', $divisi)
+                ->where('ms_department.is_dell', '=',0)->get();
+            }
 
             if (count($getDepartment) != 0) {
                 $count = Department::where('is_dell', '=',0)->count();
