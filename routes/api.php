@@ -50,7 +50,7 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::post('SoftDeleteUnitPerusahaan', 'SystemParameterController@SoftDeleteUnitPerusahaan');
     Route::post('SoftDeleteDivisi', 'SystemParameterController@SoftDeleteDivisi');
     Route::post('SoftDeleteDepartment', 'SystemParameterController@SoftDeleteDepartment');
-    
+
     Route::get('GetAllMenuAccess', 'SystemParameterController@GetAllMenuAccess');
 
 
@@ -62,7 +62,7 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::get('GetAllEmployeePrintPDF', 'EmployeeController@GetAllEmployeePrintPDF');
     Route::get('GetAllEmployeePrintExcel', 'EmployeeController@GetAllEmployeePrintExcel');
 
-    
+
     Route::get('GetRecruitment', 'RecruitmentController@GetRecruitment');
     Route::get('GetJobSeeker', 'RecruitmentController@GetJobSeeker');
     Route::get('GetSchedule', 'RecruitmentController@GetSchedule');
@@ -79,4 +79,13 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::post('AddJobSeeker', 'RecruitmentController@AddJobSeeker');
     Route::post('UpdateJobSeeker', 'RecruitmentController@UpdateJobSeeker');
     Route::post('DeleteJobSeeker', 'RecruitmentController@DeleteJobSeeker');
+
+    Route::get('GetAllHistoryAttendance', 'AttendanceController@GetAllHistoryAttendance');
+    Route::get('GetHistoryAttendanceById', 'AttendanceController@GetHistoryAttendanceById');
+    Route::get('GetAllEmployeePermit', 'EmployeePermitController@GetAllEmployeePermit');
+    Route::get('GetEmployeePermitById', 'EmployeePermitController@GetEmployeePermitById');
+    Route::get('GetAllEmployeeOvertime', 'EmployeeOvertimeController@GetAllEmployeeOvertime');
+    Route::get('GetEmployeeOvertimeById', 'EmployeeOvertimeController@GetEmployeeOvertimeById');
+    Route::get('GetAllDailyAttendance', 'AttendanceController@GetAllDailyAttendance');
+    Route::get('GetDailyAttendanceById', 'AttendanceController@GetDailyAttendanceById');
 });
